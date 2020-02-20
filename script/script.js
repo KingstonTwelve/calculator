@@ -26,7 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
         endButton = document.querySelector('.end-button'),
         total = document.querySelector('.total'),
         fastRange = document.querySelector('.fast-range'),
-        totalPriceSum = document.querySelector('.total_price__sum');
+        totalPriceSum = document.querySelector('.total_price__sum'),
+        adapt = document.getElementById('adapt'),
+        mobileTemplates = document.getElementById('mobileTemplates');
 
 
     function showElem(elem) {
@@ -82,6 +84,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function handlerCallBackForm(event) {
         const target = event.target;
+
+        if (adapt.checked) {
+            mobileTemplates.disabled = false;
+        } else {
+            mobileTemplates.disabled = true;
+            mobileTemplates.checked = false;
+        }
 
         if (target.classList.contains('want-faster')) {
             target.checked ? showElem(fastRange) : hideElem(fastRange);
